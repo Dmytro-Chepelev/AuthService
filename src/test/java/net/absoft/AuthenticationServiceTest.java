@@ -15,11 +15,11 @@ public class AuthenticationServiceTest {
   )
   public void testSuccessfulAuthentication() {
     Response response = new AuthenticationService().authenticate("user1@test.com", "password1");
-    SoftAssert softAssert = new SoftAssert();
-      softAssert.assertEquals(response.getCode(), 200, "Response code should be 200");
-      softAssert.assertTrue(validateToken(response.getMessage()),
+    SoftAssert sa = new SoftAssert();
+    sa.assertEquals(response.getCode(), 200, "Response code should be 200");
+    sa.assertTrue(validateToken(response.getMessage()),
         "Token should be the 32 digits string. Got: " + response.getMessage());
-    softAssert.assertAll();
+    sa.assertAll("Unexpected response by 'testSuccessfulAuthentication' test");
   }
 
   private boolean validateToken(String token) {
