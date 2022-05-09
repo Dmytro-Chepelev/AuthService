@@ -83,7 +83,10 @@ public class AuthenticationServiceTest {
     sa.assertAll("Unexpected response by '" + testName + "' test");
   }
 
-  @DataProvider(name = "failAuthentications")
+  @DataProvider(
+          name = "failAuthentications",
+          parallel = true
+  )
   public Object[][] dataProviderFailAuthentications () {
     return new Object[][]{
             // String testName, String email, String password, Integer errorCode, String errorMessage
