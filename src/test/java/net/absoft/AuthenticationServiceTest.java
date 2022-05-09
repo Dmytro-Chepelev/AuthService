@@ -58,7 +58,7 @@ public class AuthenticationServiceTest {
           groups = { "negative" }
   )
   public void testAuthenticationWithEmptyPassword() {
-    Response response = new AuthenticationService().authenticate("user1@test", "");
+    Response response = new AuthenticationService().authenticate("user1@test.com", "");
     assertEquals(response.getCode(), 400, "Response code should be 400");
     assertEquals(response.getMessage(), "Password should not be empty string",
         "Response message should be \"Password should not be empty string\"");
