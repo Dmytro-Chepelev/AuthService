@@ -49,7 +49,7 @@ public class AuthenticationServiceTest {
   )
   public void testAuthenticationWithInvalidEmail() {
     Response response = new AuthenticationService().authenticate("user1", "password1");
-    assertEquals(response.getCode(), 400, "Response code should be 200");
+    assertEquals(response.getCode(), 400, "Response code should be 400");
     assertEquals(response.getMessage(), "Invalid email",
         "Response message should be \"Invalid email\"");
   }
