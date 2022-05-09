@@ -11,7 +11,9 @@ import org.testng.asserts.SoftAssert;
 
 public class AuthenticationServiceTest {
 
-  @Test
+  @Test(
+          groups = { "positive" }
+  )
   public void testSuccessfulAuthentication() {
     Response response = new AuthenticationService().authenticate("user1@test.com", "password1");
     SoftAssert softAssert = new SoftAssert();
@@ -21,7 +23,9 @@ public class AuthenticationServiceTest {
     softAssert.assertAll();
   }
 
-  @Test
+  @Test(
+          groups = { "negative" }
+  )
   public void testAuthenticationWithWrongPassword() {
     Response response = new AuthenticationService()
         .authenticate("user1@test.com", "wrong_password1");
@@ -30,7 +34,9 @@ public class AuthenticationServiceTest {
         "Response message should be \"Invalid email or password\"");
   }
 
-  @Test
+  @Test(
+          groups = { "negative" }
+  )
   public void testAuthenticationWithEmptyEmail() {
     Response response = new AuthenticationService().authenticate("", "password1");
     assertEquals(response.getCode(), 400, "Response code should be 400");
@@ -38,7 +44,9 @@ public class AuthenticationServiceTest {
         "Response message should be \"Email should not be empty string\"");
   }
 
-  @Test
+  @Test(
+          groups = { "negative" }
+  )
   public void testAuthenticationWithInvalidEmail() {
     Response response = new AuthenticationService().authenticate("user1", "password1");
     assertEquals(response.getCode(), 400, "Response code should be 200");
@@ -46,7 +54,9 @@ public class AuthenticationServiceTest {
         "Response message should be \"Invalid email\"");
   }
 
-  @Test
+  @Test(
+          groups = { "negative" }
+  )
   public void testAuthenticationWithEmptyPassword() {
     Response response = new AuthenticationService().authenticate("user1@test", "");
     assertEquals(response.getCode(), 400, "Response code should be 400");
