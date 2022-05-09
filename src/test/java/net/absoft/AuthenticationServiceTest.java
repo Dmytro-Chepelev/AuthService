@@ -1,22 +1,24 @@
 package net.absoft;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net.absoft.data.Response;
 import net.absoft.services.AuthenticationService;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class AuthenticationServiceTest {
 
   @Test
   public void testSuccessfulAuthentication() {
     Response response = new AuthenticationService().authenticate("user1@test.com", "password1");
-    assertEquals(response.getCode(), 200, "Response code should be 200");
-    assertTrue(validateToken(response.getMessage()),
+    SoftAssert softAssert = new SoftAssert();
+      softAssert.assertEquals(response.getCode(), 200, "Response code should be 200");
+      softAssert.assertTrue(validateToken(response.getMessage()),
         "Token should be the 32 digits string. Got: " + response.getMessage());
+    softAssert.assertAll();
   }
 
   @Test
