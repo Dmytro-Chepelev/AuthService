@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="setupDemo-suite" parallel="methods">
+    <test name="Authentication Service - Demo setUp method">
+        <groups>
+            <run>
+                <include name="setupDemo"/>
+            </run>
+        </groups>
+    </test>
+    <packages>
+        <package name="net.absoft"/>
+    </packages>
+</suite>

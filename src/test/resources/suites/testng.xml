@@ -4,5 +4,6 @@
     <suite-files>
         <suite-file path="positive.xml"/>
         <suite-file path="negative.xml"/>
+        <suite-file path="setupDemo.xml"/>
     </suite-files>
 </suite>
