@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="retryDemo-suite" parallel="methods">
+    <test name="Authentication Service - Retry Demo Test">
+        <groups>
+            <run>
+                <include name="retry"/>
+            </run>
+        </groups>
+    </test>
+    <packages>
+        <package name="net.absoft"/>
+    </packages>
+    <listeners>
+        <listener class-name="net.absoft.listener.AnnotationTransformer"/>
+    </listeners>
+</suite>

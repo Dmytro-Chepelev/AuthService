@@ -17,5 +17,22 @@ dependencies {
 test {
     useTestNG() {
         suites 'src/test/resources/suites/testng.xml'
+        useDefaultListeners true
+
+    }
+    ignoreFailures = true
+}
+
+task retryDemo(type: Test){
+    useTestNG() {
+        suites 'src/test/resources/suites/retryDemo.xml'
+        useDefaultListeners true
+    }
+}
+
+task secondTry(type: Test){
+    useTestNG() {
+        suites 'build/reports/tests/test/testng-failed.xml'
+        useDefaultListeners true
     }
 }

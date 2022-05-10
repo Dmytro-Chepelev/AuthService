@@ -4,11 +4,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net.absoft.data.Response;
 import net.absoft.services.AuthenticationService;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class AuthenticationServiceTest {
+
+  @Test(
+          groups = { "retry" }
+  )
+  public void testAlwaysFailed() {
+    Assert.fail();
+  }
 
   @Test(
           groups = { "positive" }
